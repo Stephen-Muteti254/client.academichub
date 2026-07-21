@@ -16,9 +16,9 @@ import NotFound from "./pages/NotFound";
 import CreateOrderPage from "./pages/order/CreateOrderPage";
 import EditOrderPage from "./pages/order/EditOrderPage";
 
-import OrderSubmissions from "./pages/client/NewOrderSubmissions";
-import OrderBids from "./pages/client/OrderBids";
-import ClientBids from "./pages/client/ClientBids";
+import OrderSubmissions from "./pages/NewOrderSubmissions";
+import OrderBids from "./pages/OrderBids";
+import ClientBids from "./pages/ClientBids";
 
 import { RequireAuth } from '@/components/RequireAuth';
 import { AuthProvider } from "@/contexts/AuthContext";
@@ -33,8 +33,8 @@ import RoleGuard from "@/components/guards/RoleGuard";
 
 import { Suspense } from "react";
 import PageLoader from "@/components/PageLoader";
-import ClientWallet from "./pages/client/ClientWallet";
-import RateWriter from "./pages/client/RateWriter";
+import ClientWallet from "./pages/ClientWallet";
+import RateWriter from "./pages/RateWriter";
 import { ProfileCompletionProvider } from "@/contexts/ProfileCompletionContext";
 import ProfileCompletionController from "@/components/profile/ProfileCompletionController";
 import { HelmetProvider } from "react-helmet-async";
