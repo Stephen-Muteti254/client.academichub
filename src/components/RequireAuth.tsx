@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import ExternalRedirect from "@/components/ExternalRedirect";
+import { PORTALS } from "@/config/portals";
 
 interface RequireAuthProps {
   requiredRole?: string[];
@@ -29,7 +31,7 @@ export const RequireAuth = ({ requiredRole }: RequireAuthProps) => {
 
   // 2. Then check auth existence
   if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <ExternalRedirect to={PORTALS.AUTH} />;
   }
 
   // 3. THEN safely use user.role

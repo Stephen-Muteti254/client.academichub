@@ -5,7 +5,7 @@ import { clearAuth } from "@/services/authService";
 
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
-  "https://order-analytics.onrender.com/api/v1";
+  "https://api.academichubpro.com/api/v1";
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
