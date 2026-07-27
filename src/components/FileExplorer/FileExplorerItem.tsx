@@ -61,20 +61,20 @@ export function FileExplorerItem({
     onToggle?.(order.id);
 
     // Navigate to view immediately
-    navigate(`/client/orders/${currentTab}/${order.id}`);
+    navigate(`/orders/${currentTab}/${order.id}`);
   };
 
   const handleSubdirectoryClick = (slug: string) => {
     if (slug === "view") {
-      navigate(`/client/orders/${currentTab}/${order.id}`);
+      navigate(`/orders/${currentTab}/${order.id}`);
     } else if (slug === "bids") {
-      navigate(`/client/orders/${currentTab}/${order.id}/bids/all`);
+      navigate(`/orders/${currentTab}/${order.id}/bids/all`);
     } else if (slug === "edit") {
-      navigate(`/client/orders/${currentTab}/${order.id}/edit`);
+      navigate(`/orders/${currentTab}/${order.id}/edit`);
     } else if (slug === "rate") {
-      navigate(`/client/orders/${currentTab}/${order.id}/rate`);
+      navigate(`/orders/${currentTab}/${order.id}/rate`);
     } else {
-      navigate(`/client/orders/${currentTab}/${order.id}/${slug}`);
+      navigate(`/orders/${currentTab}/${order.id}/${slug}`);
     }
   };
 
