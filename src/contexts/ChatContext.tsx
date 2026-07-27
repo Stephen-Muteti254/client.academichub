@@ -47,9 +47,9 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  useEffect(() => {
-    refreshChats();
-  }, [refreshChats]);
+  // useEffect(() => {
+  //   refreshChats();
+  // }, [refreshChats]);
 
   const openNormalChat = (chatId: string = "normal") => {
     setCurrentChatId(chatId);

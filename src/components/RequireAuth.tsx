@@ -2,16 +2,13 @@ import { useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import { PORTALS } from "@/config/portals";
-import PageLoader from "@/components/PageLoader";
-import ExternalRedirect from "@/components/ExternalRedirect";
 
 interface RequireAuthProps {
   requiredRole?: string[];
 }
 
 export const RequireAuth = ({ requiredRole }: RequireAuthProps) => {
-  const { user, accessToken, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
   const location = useLocation();
 
   const ROLE_HIERARCHY = {
@@ -23,16 +20,16 @@ export const RequireAuth = ({ requiredRole }: RequireAuthProps) => {
 
   // 1. Wait for auth to load FIRST
   if (isLoading) {
-    return <PageLoader />;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
 
   // 2. Then check auth existence
-  if (!accessToken || !user) {
-    return (
-        <ExternalRedirect
-            to={PORTALS.AUTH}
-        />
-    );
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   // 3. THEN safely use user.role

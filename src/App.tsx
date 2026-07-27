@@ -65,7 +65,6 @@ const App = () => (
 
                     {/* ================= CLIENT ================= */}
                     <Route element={<RequireAuth requiredRole={["client"]} />}>
-                      <Route element={<EmailVerificationGuard />}>
                         <Route path="/" element={<Lazy.ClientLayout />}>
                           <Route
                             index
@@ -107,7 +106,6 @@ const App = () => (
                             element={<Navigate to="orders/in-progress" replace />}
                           />
                         </Route>
-                      </Route>
                     </Route>
 
                   </Routes>
