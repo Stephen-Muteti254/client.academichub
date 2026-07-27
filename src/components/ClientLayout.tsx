@@ -7,8 +7,8 @@ export default function ClientLayout({ noPadding }) {
 
   const disablePadding =
     noPadding ||
-    location.pathname.includes("/client/chats") ||
-    location.pathname.includes("/client/orders");
+    location.pathname.includes("/chats") ||
+    location.pathname.includes("/orders");
 
   return (
     <SidebarProvider>

@@ -41,10 +41,10 @@ import LightLogo from "@/assets/light-mini-logo.PNG";
 import DarkLogo from "@/assets/dark-mini-logo.PNG";
 
 const menuItems = [
-  { title: "My Orders", url: "/client/orders", icon: FileText },
-  { title: "Wallet", url: "/client/wallet", icon: Wallet },
-  { title: "Chats", url: "/client/chats", icon: MessageSquare },
-  { title: "Notifications", url: "/client/notifications", icon: Bell },
+  { title: "My Orders", url: "/orders", icon: FileText },
+  { title: "Wallet", url: "/wallet", icon: Wallet },
+  { title: "Chats", url: "/chats", icon: MessageSquare },
+  { title: "Notifications", url: "/notifications", icon: Bell },
 ];
 
 export function ClientSidebar() {
