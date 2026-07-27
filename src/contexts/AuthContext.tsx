@@ -7,7 +7,7 @@ interface User { /* same as your type */ id: number; full_name: string; email: s
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (user: User, token: string, remember?: boolean) => void;
+  login: (user: User) => void;
   logout: () => void;
   validateToken: () => Promise<boolean>;
 }

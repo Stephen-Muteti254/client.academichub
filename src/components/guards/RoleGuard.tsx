@@ -3,6 +3,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Navigate, Outlet } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Lock } from "lucide-react";
+import ExternalRedirect from "@/components/ExternalRedirect";
+import { PORTALS } from "@/config/portals";
 
 interface RoleGuardProps {
   allowedRoles: string[];
@@ -11,11 +13,10 @@ interface RoleGuardProps {
 
 export default function RoleGuard({ allowedRoles, children }: RoleGuardProps) {
 
-  console.log("mounted the role guard");
   const { user, isLoading } = useAuth();
 
   if (isLoading) return <div>Loading...</div>;
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <ExternalRedirect to={PORTALS.AUTH} />;
 
   const hasAccess = allowedRoles.includes(user.role);
 

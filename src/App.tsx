@@ -93,9 +93,6 @@ const App = () => (
                           {/* Chats */}
                           <Route path="chats" element={<Chats />} />
 
-                          {/* Balance */}
-                          <Route path="balance/:tab" element={<Balance />} />
-
                           {/* Notifications */}
                           <Route path="notifications" element={<Notifications />} />
 
