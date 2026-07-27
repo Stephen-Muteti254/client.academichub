@@ -168,7 +168,7 @@ export default function ClientOrders() {
       
       // Navigate away from cancelled order if viewing it
       if (orderId === cancelId) {
-        navigate(`/client/orders/${tab}`);
+        navigate(`/orders/${tab}`);
       }
     } catch (err: any) {
       toast({
@@ -195,7 +195,7 @@ export default function ClientOrders() {
   };
 
   if (!currentTab) {
-    navigate("/client/orders/in-progress");
+    navigate("/orders/in-progress");
     return null;
   }
 
@@ -205,7 +205,7 @@ export default function ClientOrders() {
       <div className="border-b border-border px-3 py-2 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-foreground">My Orders</h1>
         <Button
-          onClick={() => navigate(`/client/orders/${tab}/create`)}
+          onClick={() => navigate(`/orders/${tab}/create`)}
           variant="outline"
         >
           + New Order
@@ -223,7 +223,7 @@ export default function ClientOrders() {
                 <button
                   key={slug}
                   disabled={initialLoading}
-                  onClick={() => navigate(`/client/orders/${slug}`)}
+                  onClick={() => navigate(`/orders/${slug}`)}
                   className={cn(
                     "px-4 py-2 text-sm font-medium transition-colors",
                     tab === slug

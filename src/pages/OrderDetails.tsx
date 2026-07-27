@@ -432,7 +432,7 @@ export default function OrderDetails() {
               size="lg"
               className="w-full"
               variant="outline"
-              onClick={() => navigate(`/client/chats?order=${order.id}`)}
+              onClick={() => navigate(`/chats?order=${order.id}`)}
             >
               <MessageSquare className="h-4 w-4 mr-2" />
               Message Writer
@@ -475,7 +475,7 @@ export default function OrderDetails() {
                   size="lg"
                   className="w-full"
                   variant="outline"
-                  onClick={() => navigate(`/client/orders/${tab}/${order.id}/edit`)}
+                  onClick={() => navigate(`/orders/${tab}/${order.id}/edit`)}
                 >
                   <Edit className="h-4 w-4 mr-2" />
                   Edit Order

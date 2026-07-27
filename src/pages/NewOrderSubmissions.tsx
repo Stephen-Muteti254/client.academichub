@@ -216,7 +216,7 @@ export default function OrderSubmissions() {
         title: "Order Completed",
         description: "This order has been marked as complete.",
       });
-      navigate("/client/orders/completed");
+      navigate("/orders/completed");
     } catch (err: any) {
       toast({
         title: "Error",
@@ -322,7 +322,7 @@ export default function OrderSubmissions() {
                     <p className="text-muted-foreground mb-4">
                       Once you accept a bid and assign a writer, their submissions will appear here.
                     </p>
-                    <Button onClick={() => navigate(`/client/orders/${orderId}/bids`)}>
+                    <Button onClick={() => navigate(`/orders/${orderId}/bids`)}>
                       View Bids
                     </Button>
                   </CardContent>

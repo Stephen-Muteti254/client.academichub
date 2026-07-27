@@ -164,7 +164,7 @@ export default function OrderBids() {
             {TABS.map((t) => (
               <button
                 key={t}
-                onClick={() => navigate(`/client/orders/${tab}/${orderId}/bids/${t}`)}
+                onClick={() => navigate(`/orders/${tab}/${orderId}/bids/${t}`)}
                 className={`pb-1 px-4 text-sm font-medium transition-colors ${
                   bidTab === t
                     ? "border-b-2 border-primary text-primary"
@@ -251,7 +251,7 @@ export default function OrderBids() {
                               size="sm"
                               variant="ghost"
                               onClick={() =>
-                                navigate(`/client/chats?order=${bid.order_id}&writer=${bid.writerId}`)
+                                navigate(`/chats?order=${bid.order_id}&writer=${bid.writerId}`)
                               }
                               className="w-full mt-4"
                             >
