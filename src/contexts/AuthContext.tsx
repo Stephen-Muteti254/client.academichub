@@ -113,12 +113,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         JSON.stringify(userObj)
     );
 
-};
+  };
 
-  const logout = () => {
-    // Ideally call backend logout endpoint if needed
-    clearStorage();
-    navigate('/login');
+  const logout = async () => {
+    try {
+        await api.post("/auth/logout");
+    } catch (error) {
+        console.warn("Logout request failed:", error);
+    } finally {
+        clearStorage();
+        window.location.replace(PORTALS.AUTH);
+    }
   };
 
   const value: AuthContextType = {
