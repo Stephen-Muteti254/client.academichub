@@ -17,13 +17,18 @@ export const api = axios.create({
   xsrfHeaderName: "X-CSRF-TOKEN",
 });
 
-
 api.interceptors.request.use(
   (config) => {
 
     if (config.data instanceof FormData) {
       delete config.headers["Content-Type"];
     }
+
+    console.log("COOKIE:");
+    console.log(document.cookie);
+
+    console.log("HEADERS BEFORE:");
+    console.log(config.headers);
 
     return config;
   },
