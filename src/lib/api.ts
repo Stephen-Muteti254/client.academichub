@@ -60,8 +60,8 @@ api.interceptors.response.use(
       !isRedirecting) {
 
       isRedirecting = true;
-      // clearAuth();
-      // window.location.replace(PORTALS.AUTH);
+      clearAuth();
+      window.location.replace(PORTALS.AUTH);
 
     }
 
