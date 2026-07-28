@@ -32,14 +32,6 @@ api.interceptors.request.use(
         config.headers["X-CSRF-TOKEN"] = decodeURIComponent(match[1]);
     }
 
-    console.log("COOKIE:");
-    console.log(document.cookie);
-
-    console.log("HEADERS BEFORE:");
-    console.log(config.headers);
-
-
-
     return config;
   },
   (error) => Promise.reject(error)
