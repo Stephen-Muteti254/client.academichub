@@ -67,7 +67,7 @@ const App = () => (
                     <Route
                       element={<RequireAuth requiredRole={["client"]} />}
                     >
-                      <Route path="/" element={<ClientLayout />}>
+                      <Route path="/" element={<Lazy.ClientLayout />}>
 
                         {/* Dashboard */}
                         <Route
