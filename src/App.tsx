@@ -64,45 +64,110 @@ const App = () => (
                   <Routes>
 
                     {/* ================= CLIENT ================= */}
-                    <Route element={<RequireAuth requiredRole={["client"]} />}>
-                        <Route path="/" element={<Lazy.ClientLayout />}>
+                    <Route
+                      element={<RequireAuth requiredRole={["client"]} />}
+                    >
+                      <Route path="/" element={<ClientLayout />}>
+
+                        {/* Dashboard */}
+                        <Route
+                          index
+                          element={<Navigate to="orders/in-progress" replace />}
+                        />
+
+                        {/* Orders */}
+                        <Route path="orders">
+
                           <Route
                             index
-                            element={<Navigate to="orders/in-progress" replace />}
+                            element={<Navigate to="in-progress" replace />}
                           />
-
-                          {/* Orders */}
-                          <Route path="orders/:tab" element={<Lazy.NewClientOrders />}>
-
-                            <Route path=":orderId" element={<Lazy.OrderDetails />} />
-                            {/*<Route path=":orderId/edit" element={<OrderFormPage />} />*/}
-                            <Route path=":orderId/edit" element={<EditOrderPage />} />
-                            <Route
-                              path=":orderId/bids/:bidTab"
-                              element={<OrderBids />}
-                            />
-                            <Route
-                              path=":orderId/submissions"
-                              element={<OrderSubmissions />}
-                            />
-                            <Route path=":orderId/rate" element={<RateWriter />} />
-                            {/*<Route path="create" element={<OrderFormPage />} />*/}
-                            <Route path="create" element={<CreateOrderPage />} />
-                          </Route>
-
-                          {/* Chats */}
-                          <Route path="chats" element={<Chats />} />
-
-                          {/* Notifications */}
-                          <Route path="notifications" element={<Notifications />} />
-
-                          <Route path="wallet" element={<ClientWallet />} />
 
                           <Route
-                            path="*"
-                            element={<Navigate to="orders/in-progress" replace />}
+                            path="create"
+                            element={<CreateOrderPage />}
                           />
+
+                          <Route path=":tab">
+
+                            <Route
+                              index
+                              element={<Lazy.NewClientOrders />}
+                            />
+
+                            <Route path=":orderId">
+
+                              <Route
+                                index
+                                element={<Lazy.OrderDetails />}
+                              />
+
+                              <Route
+                                path="edit"
+                                element={<EditOrderPage />}
+                              />
+
+                              <Route
+                                path="bids"
+                              >
+                                <Route
+                                  index
+                                  element={<Navigate to="all" replace />}
+                                />
+
+                                <Route
+                                  path=":bidTab"
+                                  element={<OrderBids />}
+                                />
+                              </Route>
+
+                              <Route
+                                path="submissions"
+                                element={<OrderSubmissions />}
+                              />
+
+                              <Route
+                                path="rate"
+                                element={<RateWriter />}
+                              />
+
+                            </Route>
+
+                          </Route>
+
                         </Route>
+
+                        {/* Wallet */}
+                        <Route
+                          path="wallet"
+                          element={<ClientWallet />}
+                        />
+
+                        {/* Chats */}
+                        <Route
+                          path="chats"
+                          element={<Chats />}
+                        />
+
+                        {/* Notifications */}
+                        <Route
+                          path="notifications"
+                          element={<Notifications />}
+                        />
+
+                        {/* Profile */}
+                        <Route
+                          path="profile"
+                          element={<Profile />}
+                        />
+
+                        {/* 404 */}
+                        <Route
+                          path="*"
+                          element={<NotFound />}
+                        />
+
+                      </Route>
                     </Route>
 
                   </Routes>
