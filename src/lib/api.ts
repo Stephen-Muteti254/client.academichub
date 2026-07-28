@@ -24,11 +24,21 @@ api.interceptors.request.use(
       delete config.headers["Content-Type"];
     }
 
+    const match = document.cookie.match(
+        /(?:^|;\s*)csrf_access_token=([^;]+)/
+    );
+
+    if (match) {
+        config.headers["X-CSRF-TOKEN"] = decodeURIComponent(match[1]);
+    }
+
     console.log("COOKIE:");
     console.log(document.cookie);
 
     console.log("HEADERS BEFORE:");
     console.log(config.headers);
+
+
 
     return config;
   },
@@ -50,8 +60,8 @@ api.interceptors.response.use(
       !isRedirecting) {
 
       isRedirecting = true;
-      clearAuth();
-      window.location.replace(PORTALS.AUTH);
+      // clearAuth();
+      // window.location.replace(PORTALS.AUTH);
 
     }
 
